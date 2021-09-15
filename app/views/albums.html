@@ -1,0 +1,17 @@
+<div class="container">
+    <div class="row">
+        <div class="col-12">
+            <h2 class="mt-4 mb-4">Álbumes Musicales</h2>
+        </div>
+        <div class="col-md-6 col-lg-4" ng-repeat="album in albumes">
+            <div class="card-box">
+                <div class="card-thumbnail">
+                    <img ng-src="{{album.image}}" class="img-fluid" alt="">
+                </div>
+                <h3><a class="title" href="#">{{album.title}}</a></h3>
+                <p class="text-secondary">{{album.description}}</p>
+                <a href="#" class="btn btn-sm btn-danger float-right">Read more >></a>
+            </div>
+        </div>
+    </div>
+</div>

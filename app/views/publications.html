@@ -1,0 +1,29 @@
+<div class="content">
+    <h2>Publicaciones</h2>
+    <form name="publicationForm" ng-submit="addPublication()" novalidate>
+        <input type="text" name="title" placeholder="Titulo" ng-model="newPublication.title" ng-required="true">
+        <div ng-show="publicationForm.title.$touched && publicationForm.title.$invalid">
+            <small style="color: red; display: block; text-align: center;">Por favor ingresar un titulo</small>
+        </div>
+        <input type="text" name="user" placeholder="Usuario" ng-model="newPublication.user" ng-required="true">
+        <div ng-show="publicationForm.user.$touched && publicationForm.user.$invalid">
+            <small style="color: red; display: block; text-align: center;">Por favor ingresar un usuario</small>
+        </div>
+        <input type="text" name="description" placeholder="Descripción" ng-model="newPublication.description"
+            ng-required="true">
+        <div ng-show="publicationForm.description.$touched && publicationForm.description.$invalid">
+            <small style="color: red; display: block; text-align: center;">Por favor ingresar una descripción</small>
+        </div>
+        <input type="submit" value="Crear publicación" ng-disabled="publicationForm.$invalid">
+    </form>
+    <ul>
+        <li ng-repeat="publication in publications | orderBy: order | filter:search">
+            <img ng-src="{{publication.thumb}}" style="margin: 25px 10px 0 0; float: left; width: 50px;"
+                ng-show="publication.thumb">
+            <h5>Titulo: {{publication.title}}</h5>
+            <h5>Usuario: {{publication.user}}</h5>
+            <div class="remove" ng-click="removePublication(publication)"><i class="fas fa-trash-alt"></i></div>
+            <h5>{{publication.description}}</h5>
+        </li>
+    </ul>
+</div>

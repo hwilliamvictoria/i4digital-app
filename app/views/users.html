@@ -1,0 +1,26 @@
+<div class="content">
+    <button ng-click="order = 'name'">Ordenar por Nombre</button>
+    <button ng-click="order = 'username'">Ordenar por Username</button>
+    <input type="text" ng-model="search" placeholder="Buscar...">
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Id</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Username</th>
+                <th scope="col">Company</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="user in users | orderBy: order | filter:search">
+                <th>{{user.id}}</th>
+                <th>{{user.name}}</th>
+                <th>{{user.email}}</th>
+                <th>{{user.username}}</th>
+                <th>{{user.company.name}}</th>
+            </tr>
+        </tbody>
+    </table>
+</div>
